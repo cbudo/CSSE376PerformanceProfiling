@@ -80,6 +80,7 @@ public class StateManager {
 		final int LEVEL_3 = 4;
 		final int HIGH_SCORE_STATE = 5;
 		final int SURVIVAL_STATE = 6;
+		long start = System.nanoTime();
 		
 		// Find corresponding state to update. Use final variables to obtain the correct numbers.
 		if (state == MENU_STATE) {
@@ -108,6 +109,8 @@ public class StateManager {
 			this.states[state] = new LevelState(this, LEVEL_0 - 1);
 			this.isPlayingSurvival = true;
 		}
+		long delta = System.nanoTime()-start;
+		System.err.println("Load time (ms): "+(delta/1000000L));
 	}
 	
 	/**
